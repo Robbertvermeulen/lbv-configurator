@@ -4,7 +4,7 @@ import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
-const CollapseBox = ({ className }) => {
+const CollapseBox = ({ className, children }) => {
   let arrow = faAngleDown;
 
   return (
@@ -15,7 +15,7 @@ const CollapseBox = ({ className }) => {
           <FontAwesomeIcon icon={arrow} />
         </div>
       </div>
-      <div className="collapse-box__body"></div>
+      <div className="collapse-box__body">{children}</div>
     </div>
   );
 };
