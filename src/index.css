@@ -7,6 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Bootstrap dropdown arrow fix */
+select.form-control {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAl0lEQVRoge3RMQrCQBBG4adXUPCYYmW08cypDWiT6USyMZPdyPtgui3ez4IkSZIkaRsuQA+8kq4HzlnxJ2BIjI8bgOPUqH3hiF3h++bcyf+BW/aIa2L8Izs+c8Rq8WHJEavHhyVGVIsPv4yoHh/mjGgmPpSMaC4+TBnRbHz4NqL5+PBpxGbiQwc8x+sqt8x2GE+SJEn6Q2+A4tm8r9W5iQAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.875em top 50%, 0 0;
+  background-size: 1em auto, 100%;
+}
+
 .app-main {
   padding: 2.5em 0;
 }

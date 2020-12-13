@@ -47,3 +47,7 @@
   padding: 0.875em 0;
   text-align: center;
 }
+
+.choice:hover .choice__title {
+  text-decoration: underline;
+}
