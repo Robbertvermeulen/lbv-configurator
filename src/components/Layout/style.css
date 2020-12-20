@@ -1,0 +1,19 @@
+.layout {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.layout--green {
+  background-color: #087244;
+}
+
+.layout__header,
+.layout__body,
+.layout__footer {
+  padding: 1.5em;
+}
+
+.layout__footer {
+  background-color: rgba(0, 0, 0, 0.15);
+}

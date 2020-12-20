@@ -21,3 +21,8 @@ select.form-control {
 .app-main {
   padding: 2.5em 0;
 }
+
+.sticky {
+  position: sticky;
+  top: 1.25em;
+}

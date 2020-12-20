@@ -2,6 +2,9 @@ import React from "react";
 import CollapseBox from "../../components/CollapseBox";
 import Choice from "../../components/Choice";
 import PrimaryButton from "../../components/PrimaryButton";
+import ProductImage from "../../components/ProductImage";
+import { Button } from "react-bootstrap";
+import Layout from "../../components/Layout";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -9,6 +12,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 import choiceImage from "../../images/demo/choice-image.png";
+import productImage from "../../images/demo/lbv-boat.jpg";
 
 const HomePage = () => {
   return (
@@ -70,7 +74,34 @@ const HomePage = () => {
             </Col>
           </Row>
         </Col>
-        <Col></Col>
+        <Col lg="4">
+          <div className="sticky">
+            <div className="mb-3">
+              <ProductImage src={productImage}></ProductImage>
+            </div>
+            <div className="mb-3">
+              <Layout variant="green">
+                <Layout.Header>
+                  <div className="text-center text-light">
+                    <span className="d-block">LBV35</span>
+                    <span className="d-block h4">Your configuration</span>
+                  </div>
+                </Layout.Header>
+                <Layout.Body className="pt-0">
+                  <Button variant="outline-light" block>
+                    Overview configuration &raquo;
+                  </Button>
+                </Layout.Body>
+                <Layout.Footer>
+                  <div className="d-flex justify-content-between">
+                    <span className="h4 mb-0 text-light">Total</span>
+                    <span className="h4 mb-0 text-light">&euro; 169,00</span>
+                  </div>
+                </Layout.Footer>
+              </Layout>
+            </div>
+          </div>
+        </Col>
       </Row>
     </Container>
   );
