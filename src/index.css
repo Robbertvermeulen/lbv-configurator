@@ -26,3 +26,47 @@ select.form-control {
   position: sticky;
   top: 1.25em;
 }
+
+.drop-shadow {
+  -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.round-borders {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.bordered {
+  border: 1px solid #979797;
+}
+
+.text-green {
+  color: #087244;
+}
+
+.c-table__row {
+  display: flex;
+  justify-content: space-between;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.c-table .c-table__row:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.c-table__col {
+  padding: 0.625em 1.25em;
+}
+
+.c-table__col {
+  text-align: right;
+}
+
+.c-table__col--head {
+  text-align: left;
+}

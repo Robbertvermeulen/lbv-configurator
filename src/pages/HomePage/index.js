@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CollapseBox from "../../components/CollapseBox";
 import Choice from "../../components/Choice";
 import PrimaryButton from "../../components/PrimaryButton";
@@ -88,9 +89,11 @@ const HomePage = () => {
                   </div>
                 </Layout.Header>
                 <Layout.Body className="pt-0">
-                  <Button variant="outline-light" block>
-                    Overview configuration &raquo;
-                  </Button>
+                  <Link to="/overview">
+                    <Button variant="outline-light" block>
+                      Overview configuration &raquo;
+                    </Button>
+                  </Link>
                 </Layout.Body>
                 <Layout.Footer>
                   <div className="d-flex justify-content-between">

@@ -12,9 +12,9 @@ const Header = () => {
       <Container>
         <Row>
           <Col lg="3">
-            <div className="app-header__logo">
+            <Link to="/" className="app-header__logo">
               <img src={logo} width="100%" />
-            </div>
+            </Link>
           </Col>
           <Col lg="9">
             <nav className="app-header__nav">
