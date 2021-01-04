@@ -70,3 +70,21 @@ select.form-control {
 .c-table__col--head {
   text-align: left;
 }
+
+.cart-subtotal {
+  padding: 1.25em 0;
+  display: flex;
+  justify-content: flex-end;
+  border: 1px solid #979797;
+  border-right: 0;
+  border-left: 0;
+}
+
+.cart-subtotal__label,
+.cart-subtotal__price {
+  font-weight: bold;
+}
+
+.cart-subtotal__price {
+  margin-left: 1.125em;
+}
