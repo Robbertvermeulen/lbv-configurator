@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import structure from "../../data/structure";
 import { Link } from "react-router-dom";
 import CollapseBox from "../../components/CollapseBox";
 import Choice from "../../components/Choice";
@@ -15,13 +17,17 @@ import Form from "react-bootstrap/Form";
 import choiceImage from "../../images/demo/choice-image.png";
 import productImage from "../../images/demo/lbv-boat.jpg";
 
-const HomePage = () => {
+const StepPage = (props) => {
+  const { id } = useParams();
+  let stepId = id || 1;
+  const step = structure.find((option) => option.id == stepId);
+
   return (
     <Container>
       <Row>
         <Col lg="8">
           <header className="mb-4 d-flex justify-content-center d-lg-block">
-            <h1 className="h3">Propulsion system</h1>
+            <h1 className="h3">{step.title}</h1>
           </header>
           <section>
             <CollapseBox className="mb-3">
@@ -112,4 +118,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default StepPage;

@@ -24,6 +24,10 @@
   padding: 1.25em 0.625em;
 }
 
+.collapse-box.is-collapsed .collapse-box__body {
+  display: none;
+}
+
 @media (min-width: 960px) {
   .collapse-box__header {
     padding: 0.75em 1.875em 0.75em 1.25em;

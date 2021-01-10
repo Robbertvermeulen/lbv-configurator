@@ -1,35 +1,24 @@
 import React from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import structure from "../../../data/structure";
+import { useParams, Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Nav = () => {
-  let items = [
-    {
-      title: "Propulsion system",
-      isCurrent: 1,
-    },
-    {
-      title: "Sails",
-    },
-    {
-      title: "Navigation & Accesibility",
-    },
-    {
-      title: "Deck & Exterior",
-    },
-  ];
+  const { id } = useParams();
 
+  console.log(id);
   return (
     <nav className="app-header__nav">
-      {items.map((item, i) => (
+      {structure.map((step, i) => (
         <Item
+          id={step.id}
           number={i + 1}
-          title={item.title}
+          title={step.title}
           key={i}
-          current={item.isCurrent}
+          current={i === 0}
         ></Item>
       ))}
     </nav>
@@ -37,9 +26,12 @@ const Nav = () => {
 };
 
 const Item = (props) => {
+  const isCurrent = props.current;
+
   return (
     <Link
-      className={`app-header__nav-item ${props.current ? "is-current" : ""}`}
+      to={`/step/${props.number}`}
+      className={`app-header__nav-item ${isCurrent ? "is-current" : ""}`}
     >
       <span className="app-header__nav-item-title">{`${props.number}. ${props.title}`}</span>
       <FontAwesomeIcon

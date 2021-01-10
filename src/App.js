@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import StepPage from "./pages/StepPage";
 import OverviewPage from "./pages/OverviewPage";
 
-const App = () => {
+const App = (props) => {
   return (
     <Router>
       <div className="App">
@@ -11,6 +11,9 @@ const App = () => {
         <main className="app-main">
           <Switch>
             <Route exact path="/">
+              <StepPage></StepPage>
+            </Route>
+            <Route exact path="/step/:id">
               <StepPage></StepPage>
             </Route>
             <Route exact path="/overview">
