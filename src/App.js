@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import StepPage from "./pages/StepPage";
 import OverviewPage from "./pages/OverviewPage";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
         <main className="app-main">
           <Switch>
             <Route exact path="/">
-              <HomePage></HomePage>
+              <StepPage></StepPage>
             </Route>
             <Route exact path="/overview">
               <OverviewPage></OverviewPage>

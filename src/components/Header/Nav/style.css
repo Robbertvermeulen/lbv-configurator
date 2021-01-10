@@ -1,0 +1,52 @@
+.app-header__nav {
+  display: block;
+}
+
+.app-header__nav-item,
+.app-header__nav-item:hover {
+  color: #fff;
+}
+
+.app-header__nav-item {
+  width: 100%;
+  padding: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.app-header__nav .app-header__nav-item:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 960px) {
+  .app-header__nav {
+    display: flex;
+    justify-content: end;
+  }
+
+  .app-header__nav-item,
+  .app-header__nav .app-header__nav-item:last-child {
+    border-bottom: 3px solid transparent;
+  }
+
+  .app-header__nav-item {
+    width: auto;
+    padding: 1.875em;
+  }
+
+  .app-header__nav-item:hover,
+  .app-header__nav .app-header__nav-item:last-child:hover {
+    text-decoration: none;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .app-header__nav-item.is-current {
+    border-color: #fbed1c;
+  }
+
+  .app-header__nav-item-icon {
+    display: none;
+  }
+}

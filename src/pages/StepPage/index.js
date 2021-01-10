@@ -20,7 +20,7 @@ const HomePage = () => {
     <Container>
       <Row>
         <Col lg="8">
-          <header className="mb-5">
+          <header className="mb-4 d-flex justify-content-center d-lg-block">
             <h1 className="h3">Propulsion system</h1>
           </header>
           <section>
@@ -71,7 +71,9 @@ const HomePage = () => {
           </section>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
-              <PrimaryButton block>Next step &raquo;</PrimaryButton>
+              <PrimaryButton className="mb-5" block>
+                Next step &raquo;
+              </PrimaryButton>
             </Col>
           </Row>
         </Col>

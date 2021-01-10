@@ -18,6 +18,12 @@ select.form-control {
   background-size: 1em auto, 100%;
 }
 
+.btn {
+  padding-top: 0.875em;
+  padding-bottom: 0.875em;
+  font-weight: 600;
+}
+
 .app-main {
   padding: 2.5em 0;
 }
@@ -47,29 +53,7 @@ select.form-control {
   color: #087244;
 }
 
-.c-table__row {
-  display: flex;
-  justify-content: space-between;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.c-table .c-table__row:nth-child(odd) {
-  background-color: #efefef;
-}
-
-.c-table__col {
-  padding: 0.625em 1.25em;
-}
-
-.c-table__col {
-  text-align: right;
-}
-
-.c-table__col--head {
-  text-align: left;
-}
+/* CART TOTAL */
 
 .cart-subtotal {
   padding: 1.25em 0;

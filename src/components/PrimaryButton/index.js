@@ -4,7 +4,7 @@ import "./style.css";
 
 const PrimaryButton = (props) => {
   return (
-    <Button className="btn--primary" block={props.block}>
+    <Button className={`btn--primary ${props.className}`} block={props.block}>
       {props.children}
     </Button>
   );

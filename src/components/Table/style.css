@@ -1,0 +1,26 @@
+.c-table__row {
+  display: flex;
+  justify-content: space-between;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.c-table .c-table__row:nth-child(odd) {
+  background-color: #efefef;
+}
+
+.c-table__col {
+  padding: 0.625em 0.875em;
+  text-align: right;
+}
+
+.c-table__col--head {
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .c-table__col {
+    padding: 0.625em 1.25em;
+  }
+}
