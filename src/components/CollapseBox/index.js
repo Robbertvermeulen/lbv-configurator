@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-const CollapseBox = ({ className, children, collapsed, number, title }) => {
+const CollapseBox = ({ className, children, collapsed, title }) => {
   let [open, setOpen] = useState(collapsed);
   let headerIcon = open ? faAngleUp : faAngleDown;
 
@@ -20,9 +20,7 @@ const CollapseBox = ({ className, children, collapsed, number, title }) => {
   return (
     <div className={`collapse-box ${className}`}>
       <div className="collapse-box__header" onClick={handleHeaderClick}>
-        {number && title && (
-          <div className="collapse-box__title">{`${number}. ${title}`}</div>
-        )}
+        {title && <div className="collapse-box__title">{title}</div>}
         <div className="collapse-box__toggler">
           <FontAwesomeIcon icon={headerIcon} />
         </div>

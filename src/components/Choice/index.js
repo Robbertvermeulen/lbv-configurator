@@ -4,7 +4,7 @@ import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Choice = ({ isChosen, image }) => {
+const Choice = ({ label, image, isChosen }) => {
   let classNames = ["choice"];
   if (isChosen) {
     classNames.push("is-chosen");
@@ -20,7 +20,7 @@ const Choice = ({ isChosen, image }) => {
           ></FontAwesomeIcon>
         )}
       </div>
-      <div className="choice__title">Torqueedo Power</div>
+      <div className="choice__title">{label}</div>
     </div>
   );
 };

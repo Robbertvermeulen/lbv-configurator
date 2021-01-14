@@ -30,50 +30,39 @@ const StepPage = (props) => {
             <h1 className="h3">{step.title}</h1>
           </header>
           <section>
-            <CollapseBox className="mb-3">
-              <div className="mb-4">
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus vulputate porta libero, vitae pretium nunc facilisis
-                  vel. Suspendisse bibendum, augue sed mollis rhoncus, ligula
-                  neque venenatis justo, et laoreet felis sapien malesuada
-                  justo. Quisque rhoncus quam blandit, ullamcorper arcu quis,
-                  ultrices nibh. Fusce lacinia vehicula diam nec consectetur.
-                </p>
-              </div>
-              <div className="choices">
-                <Row>
-                  <Col xs="6" md="4">
-                    <Choice image={choiceImage} isChosen="true"></Choice>
-                  </Col>
-                  <Col xs="6" md="4">
-                    <Choice image={choiceImage}></Choice>
-                  </Col>
-                  <Col xs="6" md="4">
-                    <Choice image={choiceImage}></Choice>
-                  </Col>
-                </Row>
-              </div>
-            </CollapseBox>
-            <CollapseBox className="mb-3">
-              <div className="mb-4">
-                <p>
-                  Suspendisse bibendum, augue sed mollis rhoncus, ligula neque
-                  venenatis justo, et laoreet felis sapien malesuada justo.
-                  Quisque rhoncus quam blandit, ullamcorper arcu quis, ultrices
-                  nibh. Fusce lacinia vehicula diam nec consectetur.
-                </p>
-              </div>
-              <Row>
-                <Col sm="6">
-                  <Form.Control as="select">
-                    <option>Torgueedo</option>
-                  </Form.Control>
-                </Col>
-              </Row>
-            </CollapseBox>
-            <CollapseBox className="mb-3"></CollapseBox>
-            <CollapseBox className="mb-3"></CollapseBox>
+            {step.parts &&
+              step.parts.map((part, index) => (
+                <CollapseBox
+                  className="mb-3"
+                  title={index + 1 + ". " + part.title}
+                >
+                  <div className="mb-4">{part.description}</div>
+                  {part.type == "choice" && (
+                    <div className="choices">
+                      <Row>
+                        {part.options &&
+                          part.options.map((option) => (
+                            <Col xs="6" md="4">
+                              <Choice
+                                label={option.label}
+                                image={choiceImage}
+                                isChosen="true"
+                              ></Choice>
+                            </Col>
+                          ))}
+                      </Row>
+                    </div>
+                  )}
+                  {part.type == "dropdown" && (
+                    <Form.Control as="select">
+                      {part.options &&
+                        part.options.map((option) => (
+                          <option value={option.id}>{option.label}</option>
+                        ))}
+                    </Form.Control>
+                  )}
+                </CollapseBox>
+              ))}
           </section>
           <Row>
             <Col md={{ span: 6, offset: 3 }}>
