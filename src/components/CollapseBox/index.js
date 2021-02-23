@@ -6,7 +6,7 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 const CollapseBox = ({ className, children, collapsed, title }) => {
-  let [open, setOpen] = useState(collapsed);
+  let [open, setOpen] = useState(!collapsed);
   let headerIcon = open ? faAngleUp : faAngleDown;
 
   const handleHeaderClick = () => {

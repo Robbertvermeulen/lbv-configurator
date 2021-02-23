@@ -42,7 +42,8 @@
     border-color: rgba(255, 255, 255, 0.6);
   }
 
-  .app-header__nav-item.is-current {
+  .app-header__nav-item.is-current,
+  .app-header__nav .app-header__nav-item:last-child.is-current {
     border-color: #fbed1c;
   }
 

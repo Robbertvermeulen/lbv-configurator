@@ -1,6 +1,7 @@
 const structure = [
   {
     id: 1,
+    slug: "propulsion-system",
     title: "Propulsion system",
     parts: [
       {
@@ -13,12 +14,12 @@ const structure = [
         options: [
           {
             id: 1,
-            label: "Option 1",
+            title: "Option 1",
             value: 12,
           },
           {
             id: 2,
-            label: "Option 2",
+            title: "Option 2",
             value: 119,
           },
         ],
@@ -32,12 +33,12 @@ const structure = [
         options: [
           {
             id: 1,
-            label: "Option 1",
+            title: "Option 1",
             value: 12,
           },
           {
             id: 2,
-            label: "Option 2",
+            title: "Option 2",
             value: 119,
           },
         ],
@@ -51,14 +52,17 @@ const structure = [
   {
     id: 2,
     title: "Sail",
+    slug: "sail",
   },
   {
     id: 3,
     title: "Navigation & accessibility",
+    slug: "navigation-accessibility",
   },
   {
     id: 4,
     title: "Deck & exterior",
+    slug: "deck-exterior",
   },
 ];
 

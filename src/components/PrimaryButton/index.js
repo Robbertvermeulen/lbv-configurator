@@ -2,10 +2,14 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import "./style.css";
 
-const PrimaryButton = (props) => {
+const PrimaryButton = ({ children, className, block, handleClick }) => {
   return (
-    <Button className={`btn--primary ${props.className}`} block={props.block}>
-      {props.children}
+    <Button
+      className={`btn--primary ${className}`}
+      block={block}
+      onClick={handleClick}
+    >
+      {children}
     </Button>
   );
 };
