@@ -1,9 +1,9 @@
 import React from "react";
+import structure from "../../data/structure";
 import Header from "../../components/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Table from "../../components/Table";
 
 import productImage from "../../images/demo/lbv-boat.jpg";
 
@@ -30,41 +30,30 @@ const OverviewPage = () => {
                           src={productImage}
                           className="round-borders"
                           width="100%"
+                          alt="LBV35"
                         />
                       </div>
                     </Col>
                   </Row>
                 </header>
-                <h3 className="h4 mb-4 text-green">Propulsion system</h3>
-                <Table>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                </Table>
-                <h3 className="h4 mb-4 text-green">Propulsion system</h3>
-                <Table>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                  <Table.Row>
-                    <Table.Col header="true">Engines</Table.Col>
-                    <Table.Col>Torgueedo Power</Table.Col>
-                  </Table.Row>
-                </Table>
+                {structure.map((step, stepIndex) => (
+                  <React.Fragment key={stepIndex}>
+                    <h3 className="h4 mb-4 text-green">{step.title}</h3>
+                    <table width="100%" className="c-table mb-5">
+                      <tbody>
+                        {step.parts &&
+                          step.parts.map((part, partIndex) => (
+                            <tr className="c-table__row" key={partIndex}>
+                              <td className="c-table__col c-table__col--head">
+                                {part.title}
+                              </td>
+                              <td className="c-table__col">Torgueedo Power</td>
+                            </tr>
+                          ))}
+                      </tbody>
+                    </table>
+                  </React.Fragment>
+                ))}
                 <div className="cart-subtotal mb-4">
                   <div className="cart-subtotal__label">Total price</div>
                   <div className="cart-subtotal__price">&euro; 169,00</div>

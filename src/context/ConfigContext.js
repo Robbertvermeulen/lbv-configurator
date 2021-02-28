@@ -4,7 +4,7 @@ export const ConfigProvider = (props) => {
   const [config, setConfig] = useState(localStorage.getItem("config"));
 
   useEffect(() => {
-    localStorage.setItem("config", config);
+    if (config) localStorage.setItem("config", JSON.stringify(config));
   }, [config]);
 
   return (

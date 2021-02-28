@@ -21,13 +21,15 @@ const MainBar = () => {
   };
 
   const handleChoiceClick = (partId, optionId) => {
-    if (partId && optionId) setConfig({ ...config, [partId]: optionId });
+    if (partId && optionId)
+      setConfig((prevState) => ({ ...prevState, [partId]: optionId }));
   };
 
   const handleDropDownChange = (e) => {
     const partId = e.target.getAttribute("data-part-id");
     const optionId = e.target.value;
-    if (partId && optionId) setConfig({ ...config, [partId]: optionId });
+    if (partId && optionId)
+      setConfig((prevState) => ({ ...prevState, [partId]: optionId }));
   };
 
   let collapseBoxes = [];
