@@ -1,18 +1,29 @@
-import Header from "./components/Header";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import StepPage from "./pages/StepPage";
-import OverviewPage from "./pages/OverviewPage";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import { ConfigProvider } from "./context/ConfigContext";
+import { getFirstStep } from "./util/helpers";
+import StepView from "./views/StepView";
+import OverviewView from "./views/OverviewView";
 
 const App = () => {
+  const firstStep = getFirstStep();
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/" component={StepPage} />
-          <Route exact path="/step/:slug" component={StepPage} />
-          <Route exact path="/overview" component={OverviewPage} />
-        </Switch>
-      </div>
+      <ConfigProvider>
+        <div className="App">
+          <Switch>
+            <Route exact path="/" component={StepView}>
+              <Redirect to={`/step/${firstStep.slug}`} />
+            </Route>
+            <Route exact path="/step/:slug" component={StepView} />
+            <Route exact path="/overview" component={OverviewView} />
+          </Switch>
+        </div>
+      </ConfigProvider>
     </Router>
   );
 };

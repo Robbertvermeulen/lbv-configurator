@@ -4,13 +4,13 @@ import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
-const Choice = ({ label, image, isChosen }) => {
+const Choice = ({ label, image, isChosen, onClick }) => {
   let classNames = ["choice"];
   if (isChosen) {
     classNames.push("is-chosen");
   }
   return (
-    <div className={classNames.join(" ")}>
+    <div className={classNames.join(" ")} onClick={onClick}>
       <div className="choice__visual">
         <img src={image} />
         {isChosen && (

@@ -1,11 +1,11 @@
 const structure = [
   {
-    id: 1,
+    id: "propulsionSystem",
     slug: "propulsion-system",
     title: "Propulsion system",
     parts: [
       {
-        id: 1,
+        id: "propulsion",
         title: "Propulsion",
         type: "choice",
 
@@ -25,7 +25,7 @@ const structure = [
         ],
       },
       {
-        id: 2,
+        id: "batteryPack",
         title: "Battery pack",
         type: "dropdown",
         description:
@@ -50,17 +50,17 @@ const structure = [
     ],
   },
   {
-    id: 2,
+    id: "sail",
     title: "Sail",
     slug: "sail",
   },
   {
-    id: 3,
+    id: "navigationAccessibility",
     title: "Navigation & accessibility",
     slug: "navigation-accessibility",
   },
   {
-    id: 4,
+    id: "deckExterior",
     title: "Deck & exterior",
     slug: "deck-exterior",
   },
