@@ -1,20 +1,41 @@
 import structure from "../data/structure";
+import Step from "./step";
 
-const Wizard = ({ stepSlug, history }) => {
-  const step = structure.find((step) => step.slug === stepSlug) || structure[0];
-  const stepIndex = structure.findIndex((s) => s.id === step.id);
+const Wizard = () => {
+  let step;
+  let stepIndex;
 
-  const getStep = () => {
-    return step;
+  const steps =
+    structure &&
+    structure.map((step) => {
+      return Step(step);
+    });
+
+  const getSteps = () => {
+    return steps || false;
   };
 
-  const navigateToNextStep = () => {
+  const setStep = (stepPointer) => {
+    const find = (s) =>
+      s.getSlug() === stepPointer || s.getId() === stepPointer;
+    step = steps.find(find) || structure[0];
+    stepIndex = steps.findIndex(find);
+    return step || false;
+  };
+
+  const getStep = () => {
+    return step || false;
+  };
+
+  const navigateToNextStep = (history) => {
     const nextStep = structure[stepIndex + 1];
     if (nextStep) history.push(`/step/${nextStep.slug}/`);
     else history.push("/overview");
   };
 
   return {
+    getSteps,
+    setStep,
     getStep,
     navigateToNextStep,
   };

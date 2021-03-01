@@ -1,5 +1,7 @@
-import React from "react";
-import structure from "../../data/structure";
+import React, { useContext } from "react";
+import { ConfigContext } from "../../context/ConfigContext";
+import Wizard from "../../util/wizard";
+import { getOptionTitle } from "../../util/helpers";
 import Header from "../../components/Header";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -8,6 +10,8 @@ import Col from "react-bootstrap/Col";
 import productImage from "../../images/demo/lbv-boat.jpg";
 
 const OverviewPage = () => {
+  const [config] = useContext(ConfigContext);
+  const wizard = Wizard();
   return (
     <>
       <Header />
@@ -36,24 +40,34 @@ const OverviewPage = () => {
                     </Col>
                   </Row>
                 </header>
-                {structure.map((step, stepIndex) => (
-                  <React.Fragment key={stepIndex}>
-                    <h3 className="h4 mb-4 text-green">{step.title}</h3>
-                    <table width="100%" className="c-table mb-5">
-                      <tbody>
-                        {step.parts &&
-                          step.parts.map((part, partIndex) => (
-                            <tr className="c-table__row" key={partIndex}>
-                              <td className="c-table__col c-table__col--head">
-                                {part.title}
-                              </td>
-                              <td className="c-table__col">Torgueedo Power</td>
-                            </tr>
-                          ))}
-                      </tbody>
-                    </table>
-                  </React.Fragment>
-                ))}
+                {wizard.getSteps().map((step, stepIndex) => {
+                  return (
+                    <React.Fragment key={stepIndex}>
+                      <h3 className="h4 mb-4 text-green">{step.getTitle()}</h3>
+                      <table width="100%" className="c-table mb-5">
+                        <tbody>
+                          {step.getParts() &&
+                            step.getParts().map((part, partIndex) => {
+                              if (config[part.getId()]) {
+                                return (
+                                  <tr className="c-table__row" key={partIndex}>
+                                    <td className="c-table__col c-table__col--head">
+                                      {part.getTitle()}
+                                    </td>
+                                    <td className="c-table__col">
+                                      {part.getOptionTitle(
+                                        config[part.getId()]
+                                      )}
+                                    </td>
+                                  </tr>
+                                );
+                              }
+                            })}
+                        </tbody>
+                      </table>
+                    </React.Fragment>
+                  );
+                })}
                 <div className="cart-subtotal mb-4">
                   <div className="cart-subtotal__label">Total price</div>
                   <div className="cart-subtotal__price">&euro; 169,00</div>

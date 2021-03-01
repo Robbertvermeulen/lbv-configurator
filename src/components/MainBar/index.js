@@ -13,58 +13,70 @@ const MainBar = () => {
   const [config, setConfig] = useContext(ConfigContext);
   const history = useHistory();
   let { slug } = useParams();
-  const wizard = Wizard({ stepSlug: slug, history });
-  const step = wizard.getStep();
+  const wizard = Wizard();
+  const step = wizard.setStep(slug);
 
   const handleNextButtonClick = () => {
-    wizard.navigateToNextStep();
+    wizard.navigateToNextStep(history);
   };
 
   const handleChoiceClick = (partId, optionId) => {
     if (partId && optionId)
-      setConfig((prevState) => ({ ...prevState, [partId]: optionId }));
+      setConfig((prevState) => ({
+        ...prevState,
+        [partId]: parseInt(optionId),
+      }));
   };
 
   const handleDropDownChange = (e) => {
     const partId = e.target.getAttribute("data-part-id");
     const optionId = e.target.value;
     if (partId && optionId)
-      setConfig((prevState) => ({ ...prevState, [partId]: optionId }));
+      setConfig((prevState) => ({
+        ...prevState,
+        [partId]: parseInt(optionId),
+      }));
   };
 
   let collapseBoxes = [];
-  if (step.parts) {
-    step.parts.forEach((part, index) => {
-      let title = index + 1 + ". " + part.title;
-      if (part.options) {
+  if (step.getParts()) {
+    step.getParts().forEach((part, index) => {
+      if (part.getOptions()) {
         collapseBoxes.push(
-          <CollapseBox className="mb-3" title={title} key={index}>
-            <div className="mb-4">{part.description}</div>
-            {part.type === "choice" && (
+          <CollapseBox
+            className="mb-3"
+            title={index + 1 + ". " + part.getTitle()}
+            key={index}
+          >
+            <div className="mb-4">{part.getDescription()}</div>
+            {part.getType() === "choice" && (
               <div className="choices">
                 <Row>
-                  {part.options.map((option, i) => (
+                  {part.getOptions().map((option, i) => (
                     <Col xs="6" md="4" key={i}>
                       <Choice
-                        label={option.title}
+                        label={option.getTitle()}
                         image={choiceImage}
-                        isChosen="true"
-                        onClick={() => handleChoiceClick(part.id, option.id)}
+                        isChosen={option.getId() === config[part.getId()]}
+                        onClick={() =>
+                          handleChoiceClick(part.getId(), option.getId())
+                        }
                       ></Choice>
                     </Col>
                   ))}
                 </Row>
               </div>
             )}
-            {part.type === "dropdown" && (
+            {part.getType() === "dropdown" && (
               <Form.Control
                 as="select"
                 onChange={handleDropDownChange}
-                data-part-id={part.id}
+                data-part-id={part.getId()}
+                value={config[part.getId()]}
               >
-                {part.options.map((option, i) => (
-                  <option value={option.id} key={i}>
-                    {option.title}
+                {part.getOptions().map((option, i) => (
+                  <option value={option.getId()} key={i}>
+                    {option.getTitle()}
                   </option>
                 ))}
               </Form.Control>
@@ -78,7 +90,7 @@ const MainBar = () => {
   return (
     <>
       <header className="mb-4 d-flex justify-content-center d-lg-block">
-        <h1 className="h3">{step.title}</h1>
+        <h1 className="h3">{step.getTitle()}</h1>
       </header>
       <section>{collapseBoxes}</section>
       <Row>
