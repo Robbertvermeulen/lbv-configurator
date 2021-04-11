@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
-const CollapseBox = ({ className, children, collapsed, title }) => {
-  let [open, setOpen] = useState(!collapsed);
-  let headerIcon = open ? faAngleUp : faAngleDown;
+const CollapseBox = ({
+  className,
+  children,
+  collapsed,
+  title,
+  toggleHandler,
+}) => {
+  let headerIcon = !collapsed ? faAngleUp : faAngleDown;
 
   const handleHeaderClick = () => {
-    setOpen(!open);
+    //toggleHandler();
   };
 
-  if (!open) {
+  if (collapsed) {
     className += " is-collapsed";
   }
 
