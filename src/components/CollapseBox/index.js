@@ -15,7 +15,7 @@ const CollapseBox = ({
   let headerIcon = !collapsed ? faAngleUp : faAngleDown;
 
   const handleHeaderClick = () => {
-    //toggleHandler();
+    toggleHandler();
   };
 
   if (collapsed) {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ConfigContext } from "../../context/ConfigContext";
 import CollapseBox from "../CollapseBox";
 import Choice from "../../components/Choice";
@@ -9,13 +9,20 @@ import { Row, Col } from "react-bootstrap";
 
 const StepBox = ({ title, index, collapsed, part }) => {
   const [config] = useContext(ConfigContext);
+  const [open, setOpen] = useState(!collapsed);
+  const [partId, setPartId] = useState(part.getId());
+
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
   return (
     <CollapseBox
       className="mb-3"
       title={index + 1 + ". " + title}
-      key={index}
-      collapsed={collapsed}
+      key={partId}
+      collapsed={!open}
+      toggleHandler={handleToggle}
     >
       <div className="mb-4">{part.getDescription()}</div>
       {part.getType() === "choice" && (

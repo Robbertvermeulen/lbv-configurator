@@ -18,13 +18,17 @@ const StepView = () => {
   const history = useHistory();
   const { slug } = useParams();
   const wizard = Wizard();
-  const step = wizard.setStep(slug);
-  const [stepTitle, setStepTitle] = useState();
+  const [step, setStep] = useState(wizard.setStep(slug));
+  const [stepTitle, setStepTitle] = useState("");
   const [stepParts, setStepParts] = useState([]);
 
   const handleNextButtonClick = () => {
     wizard.navigateToNextStep(history);
   };
+
+  useEffect(() => {
+    setStep(wizard.setStep(slug));
+  }, [slug]);
 
   useEffect(() => {
     setStepTitle(step.getTitle());
@@ -45,9 +49,10 @@ const StepView = () => {
                 {stepParts &&
                   stepParts.map((part, index) => (
                     <StepBox
+                      key={part.getId()}
                       title={part.getTitle()}
                       index={index}
-                      collapsed={true}
+                      collapsed={index > 0}
                       part={part}
                     />
                   ))}
