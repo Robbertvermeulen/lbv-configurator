@@ -1,5 +1,6 @@
 import React, { useState, createContext, useEffect } from "react";
 export const ConfigContext = createContext();
+
 export const ConfigProvider = (props) => {
   const localStorageConfig =
     localStorage.getItem("config") &&
