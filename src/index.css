@@ -16,8 +16,7 @@ body {
 /* BUTTONS */
 
 .button {
-  padding-top: 0.875em;
-  padding-bottom: 0.875em;
+  padding: 0.875em 1.25em;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;

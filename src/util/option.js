@@ -7,9 +7,14 @@ const Option = (option) => {
     return option.title || false;
   };
 
+  const getInfo = () => {
+    return option.info || false;
+  };
+
   return {
     getId,
     getTitle,
+    getInfo,
   };
 };
 

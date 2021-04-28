@@ -16,6 +16,7 @@ const structure = [
             id: 1,
             title: "Torqeedo Cruise 4.0",
             value: 12,
+            info: "This is the extra info for the Torqeedo Cruise 4.0",
           },
           {
             id: 2,

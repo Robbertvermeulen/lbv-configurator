@@ -43,6 +43,7 @@ const StepBox = ({ title, index, collapsed, part }) => {
                   label={option.getTitle()}
                   image={choiceImage}
                   isChosen={option.getId() === config[part.getId()]}
+                  info={option.getInfo()}
                   clickHandler={() => handleChoiceClick(option.getId())}
                 ></Choice>
               </Col>
