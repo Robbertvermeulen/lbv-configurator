@@ -3,12 +3,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
+  -webkit-border-top-left-radius: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  -moz-border-radius-topright: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   background-color: #e4e4e4;
   font-weight: 600;
   cursor: pointer;
+}
+
+.is-collapsed .collapse-box__header {
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
 }
 
 .collapse-box__title {
@@ -21,7 +30,10 @@
 }
 
 .collapse-box__body {
-  padding: 1.25em 0.625em;
+  padding: 1.875em;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background-color: #efefef;
 }
 
 .collapse-box.is-collapsed .collapse-box__body {
