@@ -103,6 +103,7 @@ const StepView = () => {
                             de
                             decimalSeparator={","}
                             thousandSeparator={"."}
+                            decimalScale={2}
                           />
                         </span>
                       </div>

@@ -89,12 +89,12 @@ const structure = [
           {
             id: 1,
             title: "Standard",
-            value: 55,
+            price: 55,
           },
           {
             id: 2,
             title: "Code 0",
-            value: 3.22,
+            price: 3.22,
           },
         ],
       },
@@ -107,12 +107,12 @@ const structure = [
           {
             id: 1,
             title: "Lazy-bag",
-            value: 48.5,
+            price: 48.5,
           },
           {
             id: 2,
             title: "No Lazy-bag",
-            value: 99,
+            price: 99,
           },
         ],
       },
@@ -125,17 +125,17 @@ const structure = [
           {
             id: 1,
             title: "No shade",
-            value: 0,
+            price: 0,
           },
           {
             id: 2,
             title: "10m2 shade",
-            value: 389,
+            price: 200,
           },
           {
             id: 3,
             title: "20m2 shade",
-            value: 38,
+            price: 38,
           },
         ],
       },

@@ -82,6 +82,7 @@ const OverviewPage = () => {
                       de
                       decimalSeparator={","}
                       thousandSeparator={"."}
+                      decimalScale={2}
                     />
                   </div>
                 </div>
