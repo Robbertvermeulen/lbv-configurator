@@ -11,6 +11,10 @@ const Option = (option) => {
     return option.info || false;
   };
 
+  const getPrice = () => {
+    return option.price || 0;
+  };
+
   return {
     getId,
     getTitle,

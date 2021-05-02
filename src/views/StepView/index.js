@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router";
+import useTotalPrice from "../../hooks/useTotalPrice";
 import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import StepBox from "../../components/StepBox";
 import ProductImage from "../../components/ProductImage";
+import NumberFormat from "react-number-format";
 
 import { Link } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useHistory, useParams } from "react-router";
 import Wizard from "../../util/wizard";
 
 import productImage from "../../images/demo/lbv-boat.jpg";
 
 const StepView = () => {
   const history = useHistory();
+  const totalPrice = useTotalPrice();
   const { slug } = useParams();
   const wizard = Wizard();
   const [step, setStep] = useState(wizard.setStep(slug));
@@ -93,7 +96,14 @@ const StepView = () => {
                       <div className="d-flex justify-content-between">
                         <span className="h4 mb-0 text-light">Total</span>
                         <span className="h4 mb-0 text-light">
-                          &euro; 169,00
+                          <NumberFormat
+                            displayType={"text"}
+                            value={totalPrice}
+                            prefix={"€"}
+                            de
+                            decimalSeparator={","}
+                            thousandSeparator={"."}
+                          />
                         </span>
                       </div>
                     </Layout.Footer>

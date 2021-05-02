@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { ConfigContext } from "../../context/ConfigContext";
+import useTotalPrice from "../../hooks/useTotalPrice";
 import Wizard from "../../util/wizard";
+import NumberFormat from "react-number-format";
 import { getOptionTitle } from "../../util/helpers";
 import Header from "../../components/Header";
 import Container from "react-bootstrap/Container";
@@ -12,6 +14,8 @@ import productImage from "../../images/demo/lbv-boat.jpg";
 const OverviewPage = () => {
   const [config] = useContext(ConfigContext);
   const wizard = Wizard();
+  const totalPrice = useTotalPrice();
+
   return (
     <>
       <Header />
@@ -70,7 +74,16 @@ const OverviewPage = () => {
                 })}
                 <div className="cart-subtotal mb-4">
                   <div className="cart-subtotal__label">Total price</div>
-                  <div className="cart-subtotal__price">&euro; 169,00</div>
+                  <div className="cart-subtotal__price">
+                    <NumberFormat
+                      displayType={"text"}
+                      value={totalPrice}
+                      prefix={"€"}
+                      de
+                      decimalSeparator={","}
+                      thousandSeparator={"."}
+                    />
+                  </div>
                 </div>
               </div>
             </Col>
