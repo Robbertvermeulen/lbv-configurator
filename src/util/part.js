@@ -20,8 +20,6 @@ const Part = (part) => {
 
   const getOptionTitle = (optionId) => {
     const option = getOption(optionId);
-    console.log(option);
-
     return option && option.getTitle();
   };
 

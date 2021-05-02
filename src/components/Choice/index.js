@@ -25,7 +25,7 @@ const Choice = ({ label, image, isChosen, info, clickHandler }) => {
     <>
       <div className={classNames.join(" ")}>
         <div className="choice__visual" onClick={clickHandler}>
-          <img src={image} />
+          <img src={image} alt={label} />
           {isChosen && (
             <FontAwesomeIcon
               icon={faCheckCircle}
